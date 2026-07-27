@@ -1,8 +1,11 @@
-import "@/app/globals.css";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import type React from "react";
 
-import { font } from "@/app/font";
+import "@/app/globals.css";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 interface ILayout {
   children: React.ReactNode;
@@ -18,7 +21,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
     <html
       lang="en"
       suppressHydrationWarning
-      className={[font.className, "antialiased", "h-full"].join(" ")}
+      className={cn("antialiased", "h-full", "font-sans", inter.variable)}
     >
       <body className="min-h-full">{children}</body>
     </html>
