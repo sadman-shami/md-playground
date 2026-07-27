@@ -1,6 +1,6 @@
 import "@/app/globals.css";
-import { type Metadata } from "next";
-import React from "react";
+import type { Metadata } from "next";
+import type React from "react";
 
 import { font } from "@/app/font";
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <html
-      lang="en-us"
+      lang="en"
       suppressHydrationWarning
       className={[font.className, "antialiased", "h-full"].join(" ")}
     >
