@@ -19,7 +19,6 @@ export default function Container() {
   useEffect(() => {
     markdownToHtml(md).then((e) => {
       setHtml(e);
-      console.log(e);
     });
   }, [md]);
   return (
