@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import Image from "next/image";
 import type React from "react";
 
 import "@/app/globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  preload: true,
+});
+const geist_mono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  preload: true,
+});
 
 interface ILayout {
   children: React.ReactNode;
@@ -28,6 +37,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
         "font-sans",
         "dark",
         inter.variable,
+        geist_mono.variable,
       )}
     >
       <body
