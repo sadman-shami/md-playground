@@ -112,7 +112,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
           rehypeSanitize,
           rehypeStringify,
         ]}
-        components={components}
+        components={components as any}
       >
         {content}
       </ReactMarkdown>
