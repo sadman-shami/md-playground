@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import LiveEditor from "@/components/LiveEditor";
 import MarkdownRenderer from "@/components/MarkdownRender";
@@ -15,10 +15,22 @@ export default function Container() {
   const onChange = (md: string | undefined) => {
     setMD(md ?? "");
   };
+  const [width, setWidth] = useState<number>(0);
+  useEffect(() => {
+    function resize() {
+      setWidth(window.innerWidth);
+      console.log(width);
+    }
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, [width]);
   return (
-    <ResizablePanelGroup className="h-full p-4 gap-2" orientation="horizontal">
+    <ResizablePanelGroup
+      className="h-full p-4 gap-2"
+      orientation={width > 1200 ? "horizontal" : "vertical"}
+    >
       <ResizablePanel defaultSize={"60%"}>
-        <div className="p-2 h-full col-span-1 bg-foreground/10 backdrop-blur-[5px] rounded-md">
+        <div className="h-full col-span-1 bg-foreground/10 backdrop-blur-[5px] rounded-md">
           <div className="bg-foreground h-full rounded-md p-2">
             <LiveEditor md={md} onChange={onChange} />
           </div>
