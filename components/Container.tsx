@@ -27,7 +27,7 @@ export default function Container() {
   return (
     <ResizablePanelGroup
       className="h-full p-4 gap-2"
-      orientation={width > 1200 ? "horizontal" : "vertical"}
+      orientation={width > 800 ? "horizontal" : "vertical"}
     >
       <ResizablePanel defaultSize={"60%"}>
         <div className="h-full col-span-1 bg-foreground/10 backdrop-blur-[5px] rounded-md">
