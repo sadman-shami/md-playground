@@ -15,19 +15,19 @@ export default function Container() {
   const onChange = (md: string | undefined) => {
     setMD(md ?? "");
   };
-  const [width, setWidth] = useState<number>(0);
-  useEffect(() => {
-    function resize() {
-      setWidth(window.innerWidth);
-      console.log(width);
-    }
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, [width]);
+  // const [width, setWidth] = useState<number>(0);
+  // useEffect(() => {
+  //   function resize() {
+  //     setWidth(window.innerWidth);
+  //     console.log(width);
+  //   }
+  //   window.addEventListener("resize", resize);
+  //   return () => window.removeEventListener("resize", resize);
+  // }, [width]);
   return (
     <ResizablePanelGroup
       className="h-full p-4 gap-2"
-      orientation={width > 800 ? "horizontal" : "vertical"}
+      orientation={"horizontal"}
     >
       <ResizablePanel defaultSize={"60%"}>
         <div className="h-full col-span-1 bg-foreground/10 backdrop-blur-[5px] rounded-md">
